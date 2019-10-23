@@ -15,7 +15,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.6.RELEASE</version>
-        <relativePath/>
     </parent>
 
     <properties>
@@ -73,6 +72,10 @@
             <groupId>exchange.core2</groupId>
             <artifactId>exchange-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/exchange-core-0.0.1-SNAPSHOT-jar-with-dependencies.jar</systemPath>
+            <type>jar</type>
+            <optional>true</optional>
         </dependency>
 
 
@@ -230,6 +233,9 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <includeSystemScope>true</includeSystemScope>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
