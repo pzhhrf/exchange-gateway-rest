@@ -32,7 +32,6 @@ import static exchange.core2.core.utils.UnsafeUtils.ThreadAffinityMode.THREAD_AF
 
 @SpringBootApplication
 @EnableConfigurationProperties
-@ComponentScan(basePackages = {"exchange.core2.rest"})
 //@PropertySource("application.properties")
 @Configuration
 @Slf4j

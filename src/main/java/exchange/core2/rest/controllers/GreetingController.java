@@ -50,7 +50,7 @@ public class GreetingController {
         return new StompApiNotificationMessage("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void start() {
         CompletableFuture.supplyAsync(() -> {
 
