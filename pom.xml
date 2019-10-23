@@ -168,14 +168,14 @@
         </dependency>
 
 
-<!--
-        <dependency>
-            <groupId>com.konghq</groupId>
-            <artifactId>unirest-java</artifactId>
-            <version>2.3.14</version>
-            <scope>test</scope>
-        </dependency>
--->
+        <!--
+                <dependency>
+                    <groupId>com.konghq</groupId>
+                    <artifactId>unirest-java</artifactId>
+                    <version>2.3.14</version>
+                    <scope>test</scope>
+                </dependency>
+        -->
 
     </dependencies>
 
@@ -216,6 +216,20 @@
                                 <exclude>**/*Stress*Test.java</exclude>
                             </excludes>
                         </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <mainClass>exchange.core2.rest.RestGatewayApplication</mainClass>
+                                </configuration>
+                                <goals>
+                                    <goal>repackage</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
