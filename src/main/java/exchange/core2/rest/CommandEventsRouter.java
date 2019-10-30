@@ -31,6 +31,7 @@ import exchange.core2.rest.model.internal.GatewayOrder;
 import exchange.core2.rest.model.internal.GatewaySymbolSpec;
 import exchange.core2.rest.model.internal.GatewayUserProfile;
 import exchange.core2.rest.model.internal.TickRecord;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -46,10 +47,10 @@ import java.util.function.ObjLongConsumer;
 @Slf4j
 public class CommandEventsRouter implements ObjLongConsumer<OrderCommand> {
 
-    @Autowired
+    @Setter(onMethod = @__({@Autowired}))
     private GatewayState gatewayState;
 
-    @Autowired
+    @Setter(onMethod = @__({@Autowired}))
     private SimpMessagingTemplate simpMessagingTemplate;
 //
 //    @Autowired

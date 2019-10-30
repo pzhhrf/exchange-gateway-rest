@@ -18,6 +18,7 @@ package exchange.core2.rest;
 import exchange.core2.core.ExchangeCore;
 import exchange.core2.rest.model.api.TimeFrame;
 import exchange.core2.rest.model.internal.*;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.collections.impl.map.mutable.ConcurrentHashMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,7 @@ public class GatewayState {
 
     private final Map<String, ChartData> charts = new ConcurrentHashMap<>();
 
-    @Autowired
+    @Setter(onMethod = @__({@Autowired}))
     private ExchangeCore exchangeCore;
 
     public GatewaySymbolSpec getSymbolSpec(String symbolCode) {
