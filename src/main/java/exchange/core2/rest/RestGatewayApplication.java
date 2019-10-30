@@ -19,6 +19,7 @@ import exchange.core2.core.ExchangeCore;
 import exchange.core2.core.common.CoreWaitStrategy;
 import exchange.core2.core.orderbook.OrderBookFastImpl;
 import exchange.core2.core.processors.journalling.DiskSerializationProcessor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -26,6 +27,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import static exchange.core2.core.utils.UnsafeUtils.ThreadAffinityMode.THREAD_AFFINITY_ENABLE_PER_LOGICAL_CORE;
 
@@ -65,5 +69,21 @@ public class RestGatewayApplication {
 //            System.out.println(">>>" + cmd);
 //        };
 //    }
+
+    @Setter(onMethod = @__({@Autowired}))
+    private ExchangeCore exchangeCore;
+
+    @PostConstruct
+    public void start() {
+        log.debug("START1");
+        exchangeCore.startup();
+    }
+
+    @PreDestroy
+    public void stop() {
+        log.debug("STOP1");
+        exchangeCore.shutdown();
+    }
+
 
 }
