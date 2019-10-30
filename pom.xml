@@ -72,10 +72,6 @@
             <groupId>exchange.core2</groupId>
             <artifactId>exchange-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/exchange-core-0.0.1-SNAPSHOT-jar-with-dependencies.jar</systemPath>
-            <type>jar</type>
-            <optional>true</optional>
         </dependency>
 
         <dependency>
